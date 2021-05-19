@@ -1,0 +1,10 @@
+extends ../base/base.pug
+
+block variables
+    - const title = "Home";
+    //- Current để định vị trí của menu (thẻ li có style active)
+    - const current = "/";
+
+block layout
+    include ../component/header
+    include ../component/footer
