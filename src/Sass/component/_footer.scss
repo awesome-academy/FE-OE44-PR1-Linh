@@ -1,0 +1,47 @@
+footer {
+    .menu__footer {
+        padding-top: 50px;
+        h3 {
+            font-size: calc(1rem + 0.2vw);
+            text-transform: uppercase;
+        }
+        p {
+            color: $gray;
+            font-size: 0.9rem;
+        }
+        .footer__menu--items {
+            a {
+                font-size: 0.7rem;
+                font-weight: 500;
+                color: $gray;
+                text-transform: uppercase;
+                &:hover {
+                    color: rgb(3, 229, 245);
+                }
+            }
+        }
+
+        .footer__contact {
+            input {
+                border: 2px solid $gray;
+                padding: 5px 10px;
+            }
+            .icon__contact {
+                padding: 15px 0;
+                a {
+                    margin: 5px;
+                    &:first-child {
+                        margin: 0 5px 0 0;
+                    }
+                }
+            }
+        }
+    }
+    .footer__bottom {
+        text-align: center;
+        .footer__bottom--left,
+        .footer__bottom--right {
+            margin: 15px 0;
+        }
+    }
+}
