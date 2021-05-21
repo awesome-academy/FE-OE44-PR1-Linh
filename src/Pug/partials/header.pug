@@ -1,1 +1,39 @@
 include ../variables/var_header.pug
+
+header 
+    .top__menu 
+        .container.d-flex 
+            ul.top__menu--items.d-flex
+                each menu_items in menu_top 
+                    - const {title, link} = menu_items;
+                    li.line
+                        a(href=link)=title
+
+            .top__menu--search.ml-auto
+                input(type='text' placeholder='Tìm kiếm ở đây...')
+                span.bi.bi-search
+
+    .main__menu
+        .container
+            .nav.d-flex.align-items-center
+                .logo
+                    img(src="../assets/img/logo.png" alt="logo")
+                ul.ml-auto
+                each menu_items in main_menu
+                    - const {title, link, sub_menu} = menu_items;
+                    if sub_menu
+                        .active
+                            a(href=link).main_items=title
+                            .mega_menu
+                                ul.sub_menu
+                                each items in sub_items
+                                    - const {title, link, menu_items} = items;
+                                        li.active
+                                            h3=title
+                                            each item in menu_items 
+                                                a(href="#")=item
+                                .sub_img
+                                    img(src="../assets/img/sub_menu_img.jpg" alt="a")
+                    else
+                    li 
+                        a(href=link).main_items=title

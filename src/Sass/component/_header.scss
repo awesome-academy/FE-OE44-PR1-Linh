@@ -1,0 +1,99 @@
+header {
+    .top__menu {
+        background-color: white;
+        padding: 10px 0;
+        .top__menu--items {
+            .line {
+                &:not(:last-of-type)::after {
+                    content: "-";
+                }
+                a {
+                    margin: 0 0.5rem;
+                    font-size: 0.85rem;
+                    color: $gray;
+                }
+            }
+        }
+
+        .top__menu--search {
+            position: relative;
+            input {
+                padding: 5px 15px;
+                font-style: italic;
+                font-size: 0.8rem;
+                border: 1px solid #eeeeee;
+                border-radius: 5px;
+                &:focus {
+                    outline: none;
+                }
+            }
+            span {
+                position: absolute;
+                right: 10px;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .main__menu {
+        background-color: black;
+        padding: 8px 0px;
+        .nav {
+            position: relative;
+            li {
+                display: inline-block;
+                &:nth-child(5) {
+                    display: none;
+                }
+            }
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+            .main_items {
+                font-weight: 500;
+                color: white;
+                text-transform: uppercase;
+                padding: 0 0 0 25px;
+                font-size: 0.9rem;
+            }
+            .active {
+                .mega_menu {
+                    display: none;
+                    width: 100%;
+                    position: absolute;
+                    left: 0;
+                    top: 108px;
+                    border: 2px solid #e3ab39;
+                    a {
+                        display: block;
+                        font-size: 0.9rem;
+                        font-weight: 600;
+                    }
+                    h3 {
+                        text-transform: uppercase;
+                        font-weight: 600;
+                        font-size: 0.9rem;
+                    }
+                    .active {
+                        padding: 20px;
+                        width: 30%;
+                    }
+                    .sub_img {
+                        width: 40%;
+                        padding: 20px;
+                        img {
+                            width: 100%;
+                            max-height: 200px;
+                        }
+                    }
+                }
+                &:hover .mega_menu {
+                    display: flex;
+                }
+            }
+        }
+    }
+}
