@@ -1,0 +1,70 @@
+body {
+    .title {
+        letter-spacing: 3px;
+        padding: 20px 0;
+        background: url(../assets/img/title-dark.png) no-repeat center bottom;
+        font-size: 1.3rem;
+        font-weight: 400;
+    }
+    .introduce {
+        background: url("../assets/img/banner.jpg") no-repeat center center/cover;
+        padding: 3rem 0;
+        p {
+            color: $gray;
+            padding: 20px;
+        }
+    }
+
+    .product__sale {
+        .product__sale--bg {
+            background: url(../assets/img/sale_product.jpg) no-repeat center center/cover;
+            margin-bottom: calc(25% + 5rem);
+            .product__sale--tab {
+                width: 80%;
+                margin: 0 auto;
+                background: white;
+                padding: 5vw 4vw;
+                transform: translateY(50%);
+                .product__sale--img img {
+                    height: inherit;
+                }
+                .col-md-5 {
+                    .detail {
+                        color: $gray;
+                        padding: 20px 0;
+                    }
+                    .time__sale {
+                        .time__items {
+                            padding: 5px 0;
+                            border: 1px solid $yellow;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .gallery {
+        .gallery-img {
+            height: 200px;
+            overflow: hidden;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+        }
+    }
+
+    .layout-bottom {
+        .feedback {
+            padding: 30px 0;
+            .span {
+                display: block;
+                width: 70px;
+                height: 70px;
+                background-color: $yellow;
+                font-size: 70px;
+                border-radius: 50%;
+            }
+        }
+    }
+}

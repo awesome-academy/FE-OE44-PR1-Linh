@@ -1,7 +1,7 @@
 header {
     .top__menu {
         background-color: white;
-        padding: 10px 0;
+        padding: 10px 0 0 0;
         .top__menu--items {
             .line {
                 &:not(:last-of-type)::after {
@@ -39,11 +39,12 @@ header {
 
     .main__menu {
         background-color: black;
-        padding: 8px 0px;
+        padding: 0px 0px 8px 0;
         .nav {
             position: relative;
             li {
                 display: inline-block;
+                letter-spacing: 1.5px;
                 &:nth-child(5) {
                     display: none;
                 }
