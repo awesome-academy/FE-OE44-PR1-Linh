@@ -5,6 +5,10 @@
 }
 
 $gray: #818181;
+$yellow: #e3ab39;
+body {
+    font-family: "Roboto Slab", sans-serif;
+}
 
 img {
     max-width: 100%;
@@ -18,5 +22,6 @@ a {
     color: black;
     &:hover {
         text-decoration: none;
+        color: white;
     }
 }
