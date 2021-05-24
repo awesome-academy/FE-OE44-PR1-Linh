@@ -25,3 +25,21 @@ a {
         color: white;
     }
 }
+
+.title_page {
+    letter-spacing: 3px;
+    padding: 0px 0 20px 0;
+    background: url(../assets/img/titleleft-dark.png) no-repeat left bottom;
+    font-size: 1.3rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.breadcrumb {
+    background-color: transparent !important;
+    padding-left: 0;
+    padding-top: 25px;
+    a:hover {
+        color: $yellow;
+    }
+}
