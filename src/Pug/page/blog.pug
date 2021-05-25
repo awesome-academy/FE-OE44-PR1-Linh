@@ -1,0 +1,28 @@
+extends ../base/base.pug 
+
+block variables 
+    - const title = "Blog";
+    - const current = "/blog.html";
+
+    include ../component/breadcrumb.pug 
+    include ../variables/var_breadcrumb.pug 
+    include ../variables/var_blog.pug
+
+mixin blog_item()
+    each blog_post in blog_items
+        - const {img, title, author, date, content} = blog_post; 
+        .col-md-4.blog__items
+            img(src="../assets/img/" + img, alt="Blog Image")
+            h4= title 
+            p(class="info")= "Đăng bởi " + author + " | " + date + " | 60 bình luận"
+            p(class="content")= content
+            a(href="#") Read More 
+            
+block layout 
+    include ../partials/header 
+    +breadcrumb(blog, current)
+    section.container.blog 
+        +title_page("Blog")
+        .row 
+            +blog_item()
+    include ../partials/footer

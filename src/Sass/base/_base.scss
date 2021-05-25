@@ -6,6 +6,8 @@
 
 $gray: #818181;
 $yellow: #e3ab39;
+$gray-dark: #242323;
+
 body {
     font-family: "Roboto Slab", sans-serif;
 }
@@ -22,7 +24,6 @@ a {
     color: black;
     &:hover {
         text-decoration: none;
-        color: white;
     }
 }
 
