@@ -1,0 +1,89 @@
+extends ../base/base 
+
+block variables 
+    - const title = "Sản Phẩm";
+    - const current = "/products.html";
+
+    include ../component/breadcrumb 
+    include ../variables/var_breadcrumb 
+    include ../variables/var_product
+    include ../variables/var_blog
+mixin product_grid(img, name, price, detail)
+    .row 
+        .col-md-4 
+            img(src="../assets/img/"+img, alt="product Image")
+        .col-md-8
+            h3= name 
+            h3= price  
+            p= detail 
+            a(href="#").btn-custom ADD TO CART  
+
+block layout 
+    include ../partials/header
+    +breadcrumb(products_page, current)
+    section.container.product 
+        .banner-product
+        .row
+            aside.col-md-3
+                .category
+                    +title_page("Danh mục sản phẩm")
+                    each item in categories 
+                        - const {category, items} = item;
+                        h3=category 
+                        ul 
+                            each item in items 
+                                - const {label, amount} = item;
+                                li
+                                    a(href="#")=label
+                                        span=` (${amount})`
+                .compare
+                    +title_page("So sánh sản phẩm")
+                    p Bạn chưa có sản phẩm nào để so sánh
+                .tag-product
+                    +title_page("Tag sản phẩm")
+                    each tag in tags 
+                        if tag === tags[0]
+                            a(href="#").tag.active= tag 
+                        else 
+                            a(href="#").tag= tag 
+                .banner-aside
+                    img(src="../assets/img/ads.jpg" alt="")
+
+            article.col-md-9
+                input#check.check(type='checkbox' hidden)
+
+                .control.d-flex.justify-content-between.align-items-center
+                    .control-left
+                        label.a(for='check')
+                            i.bi.bi-grid-3x3-gap-fill
+                        label.b(for='check')
+                            i.bi.bi-list-ul
+                    .control-right
+                        ul.pagination.pagination-sm
+                            li.page-item
+                                a.page-link(href="#")
+                                    i.bi.bi-caret-left-fill
+                            li.page-item
+                                a.page-link(href='#' tabindex='-1') 1
+                            li.page-item
+                                a.page-link.active(href='#') 2
+                            li.page-item
+                                a.page-link(href='#') 3
+                            li.page-item
+                                a.page-link(href="#")
+                                    i.bi.bi-caret-right-fill
+                .list-product.row
+                    each item in list_product
+                        - const {img, name, price, old_price} = item;
+                        .item-product.col-md-4.mt-5.text-center
+                            img(src="../assets/img/" +img, alt="product Image")
+                            h3= name 
+                            .d-flex.justify-content-center
+                                h4= price + "đ - "
+                                h4= old_price + "đ"
+                            a(href="#").btn-custom Add to cart 
+                .grid-product 
+                    - for (var i = 0; i < 4; i++)
+                        - const { img, name, price, detail } = list_product[i];
+                        +product_grid(img, name, price, detail)
+    include ../partials/footer
