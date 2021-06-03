@@ -12,11 +12,15 @@ mixin title(title)
 mixin blog_item()
     each blog_post in blog_index 
         - const {img, title, author, date, content} = blog_post; 
-        .col-lg-6
-            img(src="../assets/img/" + img, alt="Blog Image")
-            h4= title 
-            p= "Đăng bởi " + author + " | " + date + " | 60 bình luận"
-            p= content
+        .col-lg-6.blog-items 
+            .blog-img
+                img(src="../assets/img/" + img, alt="Blog Image")
+                i.bi.bi-link-45deg.text-center
+            .blog-content
+                h4.title-blog= title 
+                p.info-blog= "Đăng bởi " + author + " | " + date + " | 60 bình luận"
+                p.content-blog.text-justify= content
+                a(href="#") Read more 
 block variables
     - const title = "Trang Chủ";
     //- Current để định vị trí của menu (thẻ li có style active)
@@ -39,8 +43,8 @@ block layout
                     .product__sale--img
                         img(src="../assets/img/product-sale.jpg" alt="product sale")
                 .col-md-5
-                    h3 Rượu nho năm 1987
-                    h2
+                    +title_page("Rượu nho năm 1987")
+                    h3.price
                         | 330.000
                         sup đ
                         |
@@ -59,9 +63,11 @@ block layout
         .row 
             each img_gallery in gallery
                 - const {img, name, year} = img_gallery;
-                .col-lg-3.col-md-4.col-sm-6.p-0
+                .col-lg-3.col-md-6.col-sm-6.p-0
                     .gallery-img(style="background-image: url(./assets/img/" + img + ")")
-
+                        .content-img.text-center
+                            span= year 
+                            h2= name
     section.hot-products.container 
         +title("SẢN PHẨM BÁN CHẠY")
         +carousel_product(hot_product)
@@ -73,11 +79,11 @@ block layout
                 .row
                     +blog_item()
 
-            .col-lg-4.col-md-6
+            .col-lg-4.col-md-6.right
                 +title("KHÁCH HÀNG")
                 .feedback.d-flex.text-center.justify-content-center
                     span.span "
-                p.text-center Vang nổ Thăng Long có hương vị đặc trưng của sản phẩm lên men tự nhiên  từ hoa quả với độ rượu nhẹ, bọt ga đầy trắng mịn, Vang nổ đỏ Thăng Long...
-                p.text-center Read More 
+                p.sub-content.text-center Vang nổ Thăng Long có hương vị đặc trưng của sản phẩm lên men tự nhiên  từ hoa quả với độ rượu nhẹ, bọt ga đầy trắng mịn, Vang nổ đỏ Thăng Long...
+                a(href="#").text-center.d-block Read more 
                 +carousel_feedback()
     include ../partials/footer

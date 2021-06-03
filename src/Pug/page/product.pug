@@ -9,15 +9,21 @@ block variables
     include ../variables/var_product
     include ../variables/var_blog
 mixin product_grid(img, name, price, detail)
-    .row 
+    .row.grid
         .col-md-4 
             img(src="../assets/img/"+img, alt="product Image")
         .col-md-8
-            h3= name 
-            h3= price  
-            p= detail 
-            a(href="#").btn-custom ADD TO CART  
-
+            h3.name= name 
+            h3.price= price + "đ" 
+            p.detail= detail 
+            .d-flex
+                .action-items
+                    a(href="#").btn-custom ADD TO CART  
+                .action-items
+                    i.bi.bi-heart-fill Yêu thích
+                .action-items
+                    i.bi.bi-reception-4 So sánh
+    hr
 block layout 
     include ../partials/header
     +breadcrumb(products_page, current)
@@ -77,10 +83,10 @@ block layout
                         - const {img, name, price, old_price} = item;
                         .item-product.col-md-4.mt-5.text-center
                             img(src="../assets/img/" +img, alt="product Image")
-                            h3= name 
+                            h3.name= name 
                             .d-flex.justify-content-center
-                                h4= price + "đ - "
-                                h4= old_price + "đ"
+                                h4.price= price + "đ - "
+                                h4.old-price= old_price + "đ"
                             a(href="#").btn-custom Add to cart 
                 .grid-product 
                     - for (var i = 0; i < 4; i++)
