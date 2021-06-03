@@ -9,13 +9,13 @@ footer
         .row 
             each img_brand in footer_brand_img
                 - const {img, alt} = img_brand;
-                .footer__brand.col-lg-4.d-lex.align-items-center.justify-content-center
+                .footer__brand.col-md-4.d-lex
                     img(src="../assets/img/" + img, alt=alt)
 
         .row.menu__footer
             each block_menu in footer_menu
                 - const {title, items} = block_menu;
-                .col-lg-2.footer__menu--items 
+                .col-lg-2.col-md-6.footer__menu--items 
                     h3= title
                     ul 
                         each menu in items

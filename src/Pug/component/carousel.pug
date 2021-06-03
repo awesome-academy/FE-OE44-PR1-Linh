@@ -11,15 +11,17 @@ mixin carousel-header()
                 if item.img === carousel_header[0].img
                     div.carousel-item.active
                         img.d-block.w-100(src="../assets/img/" + item.img, alt="Slide image")
-                        .carousel-caption.d-none.d-md-block
-                            h5= item.title
-                            p= item.name
+                        .carousel-text
+                            p.carousel-title=item.title
+                                span= item.year 
+                                span.carousel-name=item.name
                 else
                     div.carousel-item
                         img.d-block.w-100(src="../assets/img/" + item.img, alt="Slide image")
-                        .carousel-caption.d-none.d-md-block
-                            h5= item.title
-                            p= item.name
+                        .carousel-text
+                            p.carousel-title=item.title
+                                span= item.year 
+                                span.carousel-name=item.name
 
         a.carousel-control-prev(href='#carousel-header' role='button' data-slide='prev')
             span.carousel-control-prev-icon(aria-hidden='true')
@@ -32,12 +34,16 @@ mixin carousel_product(array)
     .owl-carousel.owl-theme
         each product_item in array 
             - const {img, name, price, old_price} = product_item;
-            .item
-                img(src="../assets/img/" + img, alt="Image")
-                h3= name 
-                .d-flex.text-center
-                    h4= price + "đ - "
-                    h5= old_price + "đ"
+            .item.text-center
+                .img-items
+                    img(src="../assets/img/" + img, alt="Image")
+
+                h3.name= name 
+                .d-flex.text-center.align-items-center.justify-content-center
+                    h4.price= price
+                        span đ
+                    h4.old-price= old_price
+                        span đ
                 a(href="#").btn-custom Add to cart 
 
 mixin carousel_feedback()
@@ -52,14 +58,13 @@ mixin carousel_feedback()
             each item in feedback
                 if item.img === feedback[0].img
                     div.carousel-item.active
-                        img.d-block.w-100(src="../assets/img/" + item.img, alt="Slide image")
+                        img.d-block(src="../assets/img/" + item.img, alt="Slide image")
                         .carousel-caption.d-none.d-md-block
-                            h5= item.name
-                            h6= item.job
+                            h5.name= item.name
+                            h5.job= item.job
                 else
                     div.carousel-item
-                        img.d-block.w-100(src="../assets/img/" + item.img, alt="Slide image")
+                        img.d-block(src="../assets/img/" + item.img, alt="Slide image")
                         .carousel-caption.d-none.d-md-block
-                            h5= item.name
-                            h6= item.job
-
+                            h5.name= item.name
+                            h5.job= item.job

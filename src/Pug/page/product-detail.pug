@@ -29,7 +29,7 @@ block layout
                         .col-10
                             .big-img
                                 img(src="../assets/img/3.jpg" alt="")
-            .col-md-5 
+            .col-md-5.product-info
                 +title_page("RƯỢU NHO NĂM 1978")
                 h2.price 330.000
                     sup đ
@@ -40,7 +40,7 @@ block layout
                     i.bi.bi-star-fill
                     i.bi.bi-star-half
                     i.bi.bi-star
-                    p 1 Review(s) | Add Your Review
+                    span 1 Review(s) | Add Your Review
                 hr
                 h3 Màu sắc
                 .d-flex 
@@ -58,11 +58,17 @@ block layout
                     a(href="#").btn-custom ADD TO CART
                 .d-flex.action
                     .action-items
-                        i.bi.bi-heart-fill Yêu thích
+                        a(href="#") 
+                            i.bi.bi-heart-fill 
+                                span Yêu Thích
                     .action-items
-                        i.bi.bi-reception-4 So sánh
+                        a(href="#") 
+                            i.bi.bi-reception-4 
+                                span So Sánh
                     .action-items
-                        i.bi.bi-envelope-fill Email
+                        a(href="#") 
+                            i.bi.bi-envelope-fill
+                                span Email
                 h3 Mô tả
                 p Một hợp chất có trong rượu vang được gọi là resveratro có khả năng làm tăng tối đa tuổi thọ. Resveratro còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.
                 .d-flex.social 
@@ -96,7 +102,7 @@ block layout
 
             .col-lg-4
                 img(src="../assets/img/gallery-2.jpg" alt="")
-        .row 
+        .row.mt-5
             .col-12
                 +title("SẢN PHẨM LIÊN QUAN")
                 +carousel_product(new_product)
